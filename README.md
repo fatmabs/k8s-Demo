@@ -348,3 +348,88 @@ Service endpoint is updated
    ↓
 Traffic goes to the new Pod
 ```
+## 🔧 Useful Commands
+
+### Start Minikube
+
+```bash
+minikube start --driver=docker
+```
+
+### Check Minikube status
+
+```bash
+minikube status
+```
+
+### Check Kubernetes nodes
+
+```bash
+kubectl get nodes
+kubectl get node -o wide #all infos of node
+
+```
+
+### Deploy Kubernetes resources
+
+```bash
+kubectl apply -f mongo-config.yaml
+kubectl apply -f mongo-secret.yaml
+kubectl apply -f mongo.yaml
+kubectl apply -f webapp.yaml
+```
+
+### Check deployed resources
+
+```bash
+kubectl get pods
+kubectl get deployments
+kubectl get services
+kubectl get svc #same as get services
+
+```
+
+### Check Pod details and logs
+
+```bash
+kubectl describe pod <pod-name>
+kubectl logs <pod-name>
+```
+
+### Check Service endpoints
+
+```bash
+kubectl get endpoints
+```
+
+### Access the WebApp
+
+The WebApp is exposed through a `NodePort` Service on port `30100`.
+
+With the Docker driver on Windows, use the Minikube Service command:
+
+```bash
+minikube service webapp-service
+```
+
+This opens the WebApp in the default browser.
+
+To retrieve the URL without automatically opening the browser:
+
+```bash
+minikube service webapp-service --url
+```
+
+> **Note:** When using the Docker driver on Windows, the terminal running `minikube service webapp-service` must remain open while accessing the application.
+
+### Stop Minikube
+
+```bash
+minikube stop
+```
+
+### Delete the Minikube cluster
+
+```bash
+minikube delete
+```
