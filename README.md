@@ -331,7 +331,7 @@ WebApp Pod ──────► MongoDB Service ──────► MongoDB P
 The Deployment manages the WebApp Pods, while Services provide stable network access to the Pods. ConfigMaps and Secrets provide external configuration to the containers.
 
 ---
- 
+
 ### 11. What happens when the Pod goes down?
 ```text
 Pod fails
